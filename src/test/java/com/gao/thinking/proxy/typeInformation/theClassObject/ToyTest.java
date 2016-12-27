@@ -6,8 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Class has many interesting methods , here are a few of them
  *
- * @Author 黄昌焕
- * @Date 2016-12-27  14:48
+ * @author  黄昌焕
  */
 public class ToyTest {
     private final static Logger logger = LoggerFactory.getLogger(ToyTest.class);
@@ -38,7 +37,8 @@ public class ToyTest {
     }
 
     private static void printInfo(Class cc){
-        System.out.println(" Class name: "+cc.getName()+" is interface?[ "+cc.isInterface()+" ]");
+        System.out.println("===Class name: "+cc.getName());
+        System.out.println("is interface ?["+cc.isInterface()+"]");
         System.out.println("Simple name: "+cc.getSimpleName());
         System.out.println("Canonical name: "+cc.getCanonicalName());
     }
@@ -51,7 +51,7 @@ interface Shoots{}
 class Toy{
     //comment out  the following default constructor
     //to see the Exception
-    Toy(){}
+    //Toy(){}
     Toy(int i){}
 }
 

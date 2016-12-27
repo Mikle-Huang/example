@@ -6,12 +6,16 @@
   <property name="log.other.level" value="${log.other.level}" /> <!-- 其他日志级别 -->
   <property name="log.base" value="${log.base}" /> <!-- 日志路径，这里是相对路径，web项目eclipse下会输出到eclipse的安装目录下，如果部署到linux上的tomcat下，会输出到tomcat/bin目录 下 -->
   <property name="log.moduleName" value="${log.moduleName}" />  <!-- 模块名称， 影响日志配置名，日志文件名 -->
+  <property name="log.console.pattern" value="${log.console.pattern}" />  <!-- log.console.pattern -->
+  <property name="log.file.all.pattern" value="${log.file.all.pattern}" />  <!-- log.file.all.pattern-->
+  <property name="log.file.all.other.pattern" value="${log.file.all.other.pattern}" />  <!-- log.file.all.other.pattern -->
+  <property name="log.file.error.pattern" value="${log.file.error.pattern}" />  <!-- log.file.error.pattern -->
   <property name="log.max.size" value="100MB" /> <!-- 日志文件大小,超过这个大小将被压缩 -->
 
   <!--控制台输出 -->
   <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
     <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-      <Pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%logger{56}.%method:%L -%msg%n</Pattern>
+      <Pattern>${log.console.pattern}</Pattern>
     </encoder>
   </appender>
 
@@ -31,7 +35,7 @@
     </rollingPolicy>
     <!-- 日志输出的文件的格式 -->
     <layout class="ch.qos.logback.classic.PatternLayout">
-      <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%logger{56}.%method:%L -%msg%n</pattern>
+      <pattern>${log.file.all.pattern}</pattern>
     </layout>
   </appender>
 
@@ -47,13 +51,12 @@
       </timeBasedFileNamingAndTriggeringPolicy>
     </rollingPolicy>
     <layout class="ch.qos.logback.classic.PatternLayout">
-      <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{56}.%method:%L -%msg%n</pattern>
+      <pattern>${log.file.all.other.pattern}</pattern>
     </layout>
   </appender>
 
   <!-- 只用保存输出error级别的日志 -->
-  <appender name="file.error"
-            class="ch.qos.logback.core.rolling.RollingFileAppender">
+  <appender name="file.error" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <File>${log.base}/${log.moduleName}_err.log</File>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <FileNamePattern>${log.base}/archive/${log.moduleName}_err_%d{yyyy-MM-dd}.%i.log.zip</FileNamePattern>
@@ -63,7 +66,7 @@
       </timeBasedFileNamingAndTriggeringPolicy>
     </rollingPolicy>
     <layout class="ch.qos.logback.classic.PatternLayout">
-      <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{56}.%method:%L - %msg%n</pattern>
+      <pattern>${log.file.error.pattern}</pattern>
     </layout>
     <!-- 下面为配置只输出error级别的日志 -->
     <filter class="ch.qos.logback.classic.filter.LevelFilter">

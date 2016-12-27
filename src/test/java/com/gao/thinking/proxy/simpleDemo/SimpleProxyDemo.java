@@ -4,33 +4,33 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Ò»¸ö¼òµ¥µÄ´úÀíÀı×Ó
+ * ä¸€ä¸ªç®€å•çš„ä»£ç†ä¾‹å­
  *
- * @Author »Æ²ı»À
- * @Date 2016-12-19  16:16
+ * @author  é»„æ˜Œç„•
  */
 public class SimpleProxyDemo {
     private final static Logger logger = LoggerFactory.getLogger(SimpleProxyDemo.class);
-    public static void consumer(Interface iface){
+
+    private static void consumer(Interface iface){
         iface.doSomething();
         iface.somethingElse();
     }
 
     public static void main(String[] args) {
-        logger.error("²âÊÔ");
-        //²»ÓÃ´úÀí
+        logger.error("æµ‹è¯•");
+        //ä¸ç”¨ä»£ç†
         consumer(new RealObject());
-        //Ê¹ÓÃ´úÀí
+        //ä½¿ç”¨ä»£ç†
         consumer(new SimpleProxy(new RealObject()));
     }
 }
-//½Ó¿Ú
+//æ¥å£
 interface Interface{
     void doSomething();
 
     void somethingElse();
 }
-//Ä¿±ê¶ÔÏó
+//ç›®æ ‡å¯¹è±¡
 class RealObject implements Interface{
 
     public void doSomething() {
@@ -41,10 +41,10 @@ class RealObject implements Interface{
         System.out.println("RealObject somethingElse");
     }
 }
-//¼òµ¥´úÀí¶ÔÏó
+//ç®€å•ä»£ç†å¯¹è±¡
 class SimpleProxy implements Interface{
     private Interface proxy;
-    public SimpleProxy(Interface proxy){
+    SimpleProxy(Interface proxy){
         this.proxy=proxy;
     }
     @Override

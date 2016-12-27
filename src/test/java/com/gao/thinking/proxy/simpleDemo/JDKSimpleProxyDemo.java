@@ -1,46 +1,41 @@
 package com.gao.thinking.proxy.simpleDemo;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * JDKÖ»Ö§³Ö¶Ô½Ó¿ÚµÄ¶¯Ì¬´úÀí
- *JDK¶¯Ì¬´úÀíµÄÒªËØ:
- * (1).ÊµÏÖÁËInvocationHandlerµÄ´úÀí´¦ÀíÀà,ÊµÏÖinvoke·½·¨,¸Ã·½·¨ÊÇ´úÀíµ÷ÓÃÄ¿±ê¶ÔÏó·½·¨¼°Ìá¹©¶îÍâ²Ù×÷µÄ·½·¨
- * (2).Ê¹ÓÃProxy.newProxyInstance(Àà¼ÓÔØÆ÷,´úÀí½Ó¿ÚÁĞ±í,InvocationHandler¶ÔÏó);·½·¨,´´½¨ÊµÏÖÁËÖ¸¶¨½Ó¿ÚµÄ¶¯Ì¬´úÀí
+ * JDKåªæ”¯æŒå¯¹æ¥å£çš„åŠ¨æ€ä»£ç†
+ *JDKåŠ¨æ€ä»£ç†çš„è¦ç´ :
+ * (1).å®ç°äº†InvocationHandlerçš„ä»£ç†å¤„ç†ç±»,å®ç°invokeæ–¹æ³•,è¯¥æ–¹æ³•æ˜¯ä»£ç†è°ƒç”¨ç›®æ ‡å¯¹è±¡æ–¹æ³•åŠæä¾›é¢å¤–æ“ä½œçš„æ–¹æ³•
+ * (2).ä½¿ç”¨Proxy.newProxyInstance(ç±»åŠ è½½å™¨,ä»£ç†æ¥å£åˆ—è¡¨,InvocationHandlerå¯¹è±¡);æ–¹æ³•,åˆ›å»ºå®ç°äº†æŒ‡å®šæ¥å£çš„åŠ¨æ€ä»£ç†
  *
- * @Author »Æ²ı»À
- * @Date 2016-12-19  17:31
+ * @author  é»„æ˜Œç„•
  */
 public class JDKSimpleProxyDemo {
-    private final static Logger logger = LoggerFactory.getLogger(JDKSimpleProxyDemo.class);
-    public static void consumer(Interface iface){
+    private static void consumer(Interface iface){
         iface.doSomething();
         iface.somethingElse();
     }
 
     public static void main(String[] args) {
         RealObject real = new RealObject();
-        //²»ÊÇÓÃ´úÀí
+        //ä¸æ˜¯ç”¨ä»£ç†
         consumer(real);
-        //Ê¹ÓÃ´úÀí
+        //ä½¿ç”¨ä»£ç†
         Interface proxy = (Interface) Proxy.newProxyInstance(Interface.class.getClassLoader(), new Class[]{Interface.class}, new DynamicProxyHandler(real));
         consumer(proxy);
     }
 }
 /**
- *´úÀí´¦ÀíÀà
+ *ä»£ç†å¤„ç†ç±»
  */
 class DynamicProxyHandler implements InvocationHandler{
     private Object proxied;
-    public DynamicProxyHandler(Object proxied){
+    DynamicProxyHandler(Object proxied){
         this.proxied = proxied;
     }
-    //¶¯Ì¬´úÀíµ÷ÓÃÄ¿±ê¶ÔÏóµÄ·½·¨
+    //åŠ¨æ€ä»£ç†è°ƒç”¨ç›®æ ‡å¯¹è±¡çš„æ–¹æ³•
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("dynamic proxy handler");
