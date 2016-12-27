@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 加载类,静态方法,构造函数也是静态方法
+ * 加载类时候执行静态方法;构造函数也是静态方法
  *
  * @Author 黄昌焕
  * @Date 2016-12-20  13:45
