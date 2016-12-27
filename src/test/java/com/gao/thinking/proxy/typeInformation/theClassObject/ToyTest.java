@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Class has many interesting methods , here are a few of them
- * ÕâÊÇ
- * @Author »Æ²ý»À
+ *
+ * @Author é»„æ˜Œç„•
  * @Date 2016-12-27  14:48
  */
 public class ToyTest {

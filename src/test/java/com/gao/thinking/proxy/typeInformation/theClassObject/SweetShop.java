@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * ������ʱ��ִ�о�̬����;���캯��Ҳ�Ǿ�̬����
+ * 加载类时候执行静态方法;构造函数也是静态方法
  *
- * @Author �Ʋ���
+ * @Author 黄昌焕
  * @Date 2016-12-20  13:45
  */
 public class SweetShop {
