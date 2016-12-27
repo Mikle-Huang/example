@@ -12,6 +12,10 @@ import org.slf4j.LoggerFactory;
 public class ToyTest {
     private final static Logger logger = LoggerFactory.getLogger(ToyTest.class);
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Class c=null;
         try {
