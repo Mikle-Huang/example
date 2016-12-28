@@ -51,7 +51,7 @@ interface Shoots{}
 class Toy{
     //comment out  the following default constructor
     //to see the Exception
-    //Toy(){}
+    private Toy(){}
     Toy(int i){}
 }
 
