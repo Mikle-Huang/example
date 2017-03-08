@@ -35,6 +35,15 @@ public class SweetShop {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
+        //Modify SweetShop.java so that each type of object creation is controlled by a command-line argument. That is, if your command line is "Java Sweetshop Candy," then only the Candy object is created. Notice how you can control which Class objects are loaded via the commandline argument.
+        if(args!=null&&args.length==1) {
+            try {
+                Class.forName("com.gao.thinking.proxy.typeInformation.theClassObject."+args[0]);
+            } catch (ClassNotFoundException e) {
+                logger.error("error when loading class!"+e.toString());
+                e.printStackTrace();
+            }
+        }
     }
 
 }
