@@ -13,9 +13,10 @@ public class ToyTest {
 
     public static void main(String[] args) {
         Class c=null;
+        logger.info("test");
         try {
-            c = Class.forName("com.gao.thinking.proxy.typeInformation.theClassObject.FancyToy");
-        } catch (ClassNotFoundException e) {
+            c = Class.forName("com.gao.thinking.proxy.typeInformation.theClassObject.fancytoy");
+        } catch (Exception e) {
             logger.error("Can't find FancyToy");
             System.exit(1);
         }
