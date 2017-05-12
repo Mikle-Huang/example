@@ -1,13 +1,14 @@
 package com.gao.thinking.proxy.typeInformation.InterfacesAndTypeInformation;
 
+import com.gao.thinking.proxy.typeInformation.InterfacesAndTypeInformation.interfacea.A;
+
 /**
  * interface A implementation type
  *
  * @Author »Æ²ý»À
  * @Date 2017-05-12  0:17
  */
-public class B implements A{
-
+class B implements A {
     @Override
     public void f() {
         System.out.println("method : f()");
@@ -18,15 +19,7 @@ public class B implements A{
     }
 }
 
-class C implements A{
-
-    @Override
-    public void f() {
-        System.out.println("i am C");
-    }
-}
-
-class InterfaceViolation{
+public class InterfaceViolation{
     public static void main(String[] args){
         A a=new B();
         a.f();
@@ -35,9 +28,6 @@ class InterfaceViolation{
             B b=(B)a;
             b.g();
             System.out.println("a instanceof B is true!");
-        }
-        if(a instanceof C){
-            System.out.println("a instanceof C is true!");
         }
     }
 }

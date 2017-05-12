@@ -1,4 +1,4 @@
-package com.gao.thinking.proxy.typeInformation.InterfacesAndTypeInformation;
+package com.gao.thinking.proxy.typeInformation.InterfacesAndTypeInformation.interfacea;
 
 /**
  * ${DESCRIPTION}
