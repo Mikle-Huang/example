@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 一个简单的代理例子
+ * 简单的静态代理
  *
- * @author  黄昌焕
+ * @author  huangchanghuan
  */
 public class SimpleProxyDemo {
     private final static Logger logger = LoggerFactory.getLogger(SimpleProxyDemo.class);
@@ -16,7 +16,7 @@ public class SimpleProxyDemo {
         iface.somethingElse();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {//测试
         logger.error("测试");
         //不用代理
         consumer(new RealObject());
@@ -29,8 +29,10 @@ interface Interface{
     void doSomething();
 
     void somethingElse();
+
+    void doMoreThing();
 }
-//目标对象
+//被代理类(委托类)
 class RealObject implements Interface{
 
     public void doSomething() {
@@ -40,8 +42,13 @@ class RealObject implements Interface{
     public void somethingElse() {
         System.out.println("RealObject somethingElse");
     }
+
+    @Override
+    public void doMoreThing() {
+        System.out.println("RealObject doMoreThing");
+    }
 }
-//简单代理对象
+//代理类
 class SimpleProxy implements Interface{
     private Interface proxy;
     SimpleProxy(Interface proxy){
@@ -57,5 +64,10 @@ class SimpleProxy implements Interface{
     public void somethingElse() {
         System.out.println("SimpleProxy somethingElse");
         proxy.somethingElse();
+    }
+
+    @Override
+    public void doMoreThing() {
+
     }
 }

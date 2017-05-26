@@ -38,7 +38,9 @@ class DynamicProxyHandler implements InvocationHandler{
     //动态代理调用目标对象的方法
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("dynamic proxy handler");
-        return method.invoke(proxied,args);
+        System.out.println("dynamic proxy handler==执行方法前");
+        Object obj= method.invoke(proxied,args);
+        System.out.println("dynamic proxy handler==执行方法后");
+        return obj;
     }
 }
