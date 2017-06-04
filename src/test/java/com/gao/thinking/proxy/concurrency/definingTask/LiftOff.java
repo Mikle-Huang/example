@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 public class LiftOff implements Runnable{
     private final static Logger logger = LoggerFactory.getLogger(LiftOff.class);
-    private int countDown=10;
+    protected int countDown=10;
     private static int taskCount=0;
     private final int id=taskCount++;//标识这是第几个task
     public LiftOff(){}
