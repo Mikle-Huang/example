@@ -1,11 +1,8 @@
-package com.gao.thinking.proxy.concurrency.cooperationbetweentasks;
+package com.gao.thinking.proxy.concurrency.cooperationBetweenTasks;
 
-import com.gao.thinking.proxy.concurrency.definingTask.LiftOff;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

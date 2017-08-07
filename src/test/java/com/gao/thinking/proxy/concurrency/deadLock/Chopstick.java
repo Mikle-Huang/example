@@ -1,4 +1,4 @@
-package com.gao.thinking.proxy.concurrency.deadlock;
+package com.gao.thinking.proxy.concurrency.deadLock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

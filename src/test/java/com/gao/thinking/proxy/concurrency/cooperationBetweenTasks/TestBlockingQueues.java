@@ -1,4 +1,4 @@
-package com.gao.thinking.proxy.concurrency.cooperationbetweentasks;
+package com.gao.thinking.proxy.concurrency.cooperationBetweenTasks;
 
 import com.gao.thinking.proxy.concurrency.definingTask.LiftOff;
 

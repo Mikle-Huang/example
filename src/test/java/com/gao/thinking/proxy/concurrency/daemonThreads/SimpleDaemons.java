@@ -1,4 +1,4 @@
-package com.gao.thinking.proxy.concurrency.daemonthreads;
+package com.gao.thinking.proxy.concurrency.daemonThreads;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

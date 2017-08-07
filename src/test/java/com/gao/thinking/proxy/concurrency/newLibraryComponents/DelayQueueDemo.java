@@ -1,4 +1,4 @@
-package com.gao.thinking.proxy.concurrency.newlibrarycomponents;
+package com.gao.thinking.proxy.concurrency.newLibraryComponents;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
